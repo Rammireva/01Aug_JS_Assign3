@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Form</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h3>Fill the Form</h3>
+<form>
+    <input type="email" name="email" placeholder="Email" required autofocus autocomplete="off"><br />
+    <input type="password" name="password" placeholder="Password" required onsubmit="checkPassword()"><br />
+    <input type="url" name="url" placeholder="Url" required  autocomplete="off"><br />
+    <input type="date" name="date" placeholder="Project Complete Date" required  autocomplete="off"><br />
+    <input type="month" name="month" placeholder="Current Month" required  autocomplete="off"><br />
+    <input type="week" name="week" placeholder="Current Week" required  autocomplete="off"><br />
+    <input type="time" name="time" placeholder="Current Time" required  autocomplete="off"><br />
+    Select Color: <input type="color" name="color"><br />
+    Age: <input type="range" min="10" max="75" id="age" name="age" onchange="getAgeValue()"> Select Age: <span></span><br />
+    Hobbies: <input type="list" list="hobbies"><br />
+    <datalist id="hobbies">
+        <option value="Watching Movies">Watching Movies</option>
+        <option value="Watching Cricket">Watching Cricket</option>
+        <option value="Listening Music">Listening Music</option>
+        <option value="Programing">Programing</option>
+    </datalist>
+    <input type="submit" name="submit" value="submit">
+</form>
+</body>
+<script type="application/javascript">
+    function getAgeValue(){
+        var age = document.getElementById('age').value;
+        document.getElementsByTagName('span')[0].innerHTML = age;
+    }
+    function checkPassword(e){
+        e.preventDefault();
+        var password = document.getElementsByName('password')[0].length;
+        if(password < 6)
+                alert('Password must be more than 6');
+    }
+</script>
+</html>
